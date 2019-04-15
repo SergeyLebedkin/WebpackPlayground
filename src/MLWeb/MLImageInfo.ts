@@ -1,5 +1,5 @@
 // MLImageInfo
 export class MLImageInfo {
-    public image   = document.createElement("image") as HTMLImageElement;
+    public image   : HTMLImageElement;
     public fileRef : File;
 }
