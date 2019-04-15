@@ -1,7 +1,7 @@
-class AAA {
-    public val: number = 3;
-    constructor() {
-    }
-}
-let a = new AAA();
-console.log(2);
+import { RegionInfo } from "./regions";
+
+// crate region
+let region = new RegionInfo(0, 0, 100, 100);
+
+// write console
+console.log(region.toString());
