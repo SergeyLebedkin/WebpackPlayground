@@ -1,7 +1,10 @@
-import { RegionInfo } from "./regions";
+import { MLRegionInfo } from "./MLWeb/MLRegionInfo";
+import { MLImageInfo } from "./MLWeb/MLImageInfo";
 
-// crate region
-let region = new RegionInfo(0, 0, 100, 100);
+// create region
+let region = new MLRegionInfo(0, 0, 100, 100);
+// create image
+let imageInfo = new MLImageInfo();
 
 // write console
-console.log(region.toString());
+console.log(imageInfo.image);
