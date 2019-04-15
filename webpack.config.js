@@ -5,14 +5,10 @@ module.exports = {
     entry: "./src/script.ts",
     devtool: "source-map",
     devServer: {
-        historyApiFallback: {
-            index: "./dist/index.html"
-        },
         watchContentBase: true,
-        overlay: true,
+        overlay: true
     },
     resolve: {
-        // Add `.ts` and `.tsx` as a resolvable extension.
         extensions: [".ts", ".tsx", ".js"]
     },
     module: {
@@ -22,9 +18,6 @@ module.exports = {
                 loader: "ts-loader"
             }
         ]
-    },
-    node: {
-        fs: 'empty'
     },
     output: {
         filename: "bundle.js",
