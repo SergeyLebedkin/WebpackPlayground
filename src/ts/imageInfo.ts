@@ -4,5 +4,3 @@ export class ImageInfo {
         this.name = name;
     }
 }
-
-export declare function PrintHello(): void;
