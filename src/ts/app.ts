@@ -1,5 +1,6 @@
-import { ImageInfo } from "./imageInfo";
+import { ImageInfo } from "./ImageInfo";
 
+// call external js function from dependencies
 declare function PrintHello(): void;
 PrintHello();
 
