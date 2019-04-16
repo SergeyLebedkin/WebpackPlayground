@@ -12,6 +12,7 @@ module.exports = {
         watchContentBase: true,
         overlay: true
     },
+<<<<<<< HEAD
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/bundle.js'
@@ -21,6 +22,23 @@ module.exports = {
             test: /\.(ts|tsx)$/,
             loader: "ts-loader"
         }]
+=======
+    resolve: {
+        extensions: [".ts", ".tsx", ".js"]
+    },
+    module: {
+        rules: [
+            {
+                test: /\.tsx?$/,
+                loader: "ts-loader"
+            }
+        ]
+    },
+    output: {
+        filename: "bundle.js",
+        path: path.resolve(__dirname, "dist/js"),
+        publicPath: "dist/js/"
+>>>>>>> f266ceb2aa9493b73b04b28a807f5806560de288
     },
     plugins: [
         new CleanWebpackPlugin(),
