@@ -1,37 +1,36 @@
-const path = require("path");
+const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: "./src/script.ts",
-    devtool: "source-map",
+    entry: {
+        main: './src/js/script.js'
+    },
+    devtool: 'source-map',
     devServer: {
-        historyApiFallback: {
-            index: "./dist/index.html"
-        },
         watchContentBase: true,
-        overlay: true,
-    },
-    resolve: {
-        // Add `.ts` and `.tsx` as a resolvable extension.
-        extensions: [".ts", ".tsx", ".js"]
-    },
-    module: {
-        rules: [
-            {
-                test: /\.tsx?$/,
-                loader: "ts-loader"
-            }
-        ]
-    },
-    node: {
-        fs: 'empty'
+        overlay: true
     },
     output: {
-        filename: "bundle.js",
-        path: path.resolve(__dirname, "dist/js"),
-        publicPath: "dist/js/"
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'js/bundle.js'
+    },
+    module: {
+        rules: [{
+            test: /\.(ts|tsx)$/,
+            loader: "ts-loader"
+        }]
     },
     plugins: [
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new CopyWebpackPlugin([
+            { from: "src/css", to: "css" }
+        ]),
+        new HtmlWebpackPlugin({
+            inject: false,
+            template: './src/index.html',
+            filename: 'index.html'
+        })
     ]
-};
+}
