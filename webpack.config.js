@@ -16,16 +16,20 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/bundle.js'
     },
+    resolve: {
+        extensions: [".ts", ".tsx", ".js"]
+    },
     module: {
         rules: [{
             test: /\.(ts|tsx)$/,
-            loader: "ts-loader"
+            use: [{ loader: "ts-loader" }],
         }]
     },
     plugins: [
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin([
-            { from: "src/css", to: "css" }
+            { from: "src/css", to: "css" },
+            { from: "src/deps", to: "deps" },
         ]),
         new HtmlWebpackPlugin({
             inject: false,
